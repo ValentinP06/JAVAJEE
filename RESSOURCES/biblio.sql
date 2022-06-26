@@ -47,6 +47,6 @@ INSERT INTO Livre (id_auteur, titre, nb_pages, categorie) VALUES
 (2, 'Beginning Java EE 7', 120, 'javaee'),
 (3, 'Mieux programmer en Java', 540, 'java'),
 (4, 'Exercices en Java', 184, 'java'),
-(4, 'Initiation à la programmation', 350, 'algo'),
+(4, 'Initiation ï¿½ la programmation', 350, 'algo'),
 (4, 'C++ Guide complet', 842, 'cpp');
 
