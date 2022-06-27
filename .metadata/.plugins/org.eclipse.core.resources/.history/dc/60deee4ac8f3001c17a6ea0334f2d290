@@ -1,0 +1,135 @@
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
+public class Launcher {
+
+	public static void main(String[] args) {
+		
+		String url = "jdbc:postgresql://localhost/biblio";
+		String user = "postgres";
+		String password = "12345";
+		
+		Connection con = null;
+		Statement sta = null;
+		ResultSet rs = null;
+		
+		//Lister les auteurs 
+		List<Auteur> listeAuteurs = new ArrayList<Auteur>();
+		try {
+			  Class.forName("org.postgresql.Driver");
+			  con = DriverManager.getConnection(url, user, password);
+			  
+			  
+			  
+	    } catch(SQLException ex) {
+	    	ex.printStackTrace();
+	    } catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				con.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		System.out.println("-------------------");
+		
+		//Récupérer un auteur à partir d'un ID
+		Auteur auteur = new Auteur();
+		try {
+			  Class.forName("org.postgresql.Driver");
+			  con = DriverManager.getConnection(url, user, password);
+			  
+			  
+			  
+	    } catch(SQLException ex) {
+	    	ex.printStackTrace();
+	    } catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				con.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		
+		
+		System.out.println("-------------------");
+		
+		//Ajouter un auteur
+		auteur = new Auteur("Toto", "Tata", "0660606060", "toto@tata.fr");
+		try {
+			  Class.forName("org.postgresql.Driver");
+			  con = DriverManager.getConnection(url, user, password);
+			  
+			  
+			  
+	    } catch(SQLException ex) {
+	    	ex.printStackTrace();
+	    } catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				con.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		
+		System.out.println("-------------------");
+		
+		//Modifier un auteur
+		try {
+			  Class.forName("org.postgresql.Driver");
+			  con = DriverManager.getConnection(url, user, password);
+			  
+			  
+			  
+	    } catch(SQLException ex) {
+	    	ex.printStackTrace();
+	    } catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				con.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		
+		System.out.println("-------------------");
+		
+		//Supprimer un auteur
+		try {
+			  Class.forName("org.postgresql.Driver");
+			  con = DriverManager.getConnection(url, user, password);
+			  
+			  
+			  
+	    } catch(SQLException ex) {
+	    	ex.printStackTrace();
+	    } catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				con.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		
+	}
+
+}

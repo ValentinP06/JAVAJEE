@@ -1,0 +1,174 @@
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
+public class Launcher {
+
+	public static void main(String[] args) {
+		
+		/*
+		1 - Créer un Java Project "TestJDBC"
+		2 - Créer un dossier "RESSOURCES" à la racine et y placer le fichier "postgresql*.jar"
+		3 - Ajouter le driver au classpath de votre projet
+		4 - Ajouter la classe Auteur.java et le Launcher.java dans le dossier "src"
+		5 - Completez le fichier Launcher.java pour faire les actions suivantes en JAVA depuis la base : 
+	- Afficher la liste des auteurs 
+	Select * FROM Auteur;
+	
+	- Afficher le détail d'un auteur 
+	SELECT nom,prenom, telephone,email FROM Auteur;
+	
+	- Ajouter un auteur (et constatez en BDD via pgAdmin)
+	INSERT INTO Auteur (nom,prenom,telephone,email)
+     VALUES ('pierre', 'Cart','0987652243','etsbrtbbt@rtrb');
+     
+	- Modifier un auteur existant (et constatez en BDD via pgAdmin)
+	
+	- Supprimer un auteur existant (et constatez en BDD via pgAdmin)
+		 */
+		
+		String url = "jdbc:postgresql://localhost/biblio";
+		String user = "postgres";
+		String password = "12345";
+		
+		Connection con = null;
+		Statement sta = null;
+		ResultSet rs = null;
+		
+		//Lister les auteurs 
+		
+		List<Auteur> listeAuteurs = new ArrayList<Auteur>();
+		try {
+			  Class.forName("org.postgresql.Driver");
+			  con = DriverManager.getConnection(url, user, password);
+			  
+		String query= "Select * FROM Auteur";
+		
+		System.out.println("query:"+ query);
+		ResultSet rs = st.executeQuery (query);
+		
+		while(rs.next()) {
+			String Auteur = rs.getString("Auteur");
+			
+		}
+		
+	    } catch(SQLException ex) {
+	    	ex.printStackTrace();
+	    } catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				con.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+
+		System.out.println("la liste des auteurs est :" + query);
+		
+		rs.close();
+		st.close();
+		con.close();
+		
+		
+		
+		//Récupérer un auteur à partir d'un ID
+		Auteur auteur = new Auteur();
+		try {
+			  Class.forName("org.postgresql.Driver");
+			  con = DriverManager.getConnection(url, user, password);
+			  
+			  
+			  
+	    } catch(SQLException ex) {
+	    	ex.printStackTrace();
+	    } catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				con.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		rs.close();
+		st.close();
+		con.close();
+		
+		
+		System.out.println("l'auteur "+getid.5+"a ete recup");
+		
+		//Ajouter un auteur
+		auteur = new Auteur("Toto", "Tata", "0660606060", "toto@tata.fr");
+		try {
+			  Class.forName("org.postgresql.Driver");
+			  con = DriverManager.getConnection(url, user, password);
+			  
+			  
+			  
+	    } catch(SQLException ex) {
+	    	ex.printStackTrace();
+	    } catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				con.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		
+		System.out.println("-------------------");
+		
+		//Modifier un auteur
+		try {
+			  Class.forName("org.postgresql.Driver");
+			  con = DriverManager.getConnection(url, user, password);
+			  
+			  
+			  
+	    } catch(SQLException ex) {
+	    	ex.printStackTrace();
+	    } catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				con.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		
+		System.out.println("-------------------");
+		
+		//Supprimer un auteur
+		try {
+			  Class.forName("org.postgresql.Driver");
+			  con = DriverManager.getConnection(url, user, password);
+			  
+			  
+			  
+	    } catch(SQLException ex) {
+	    	ex.printStackTrace();
+	    } catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				con.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		
+	}
+
+}

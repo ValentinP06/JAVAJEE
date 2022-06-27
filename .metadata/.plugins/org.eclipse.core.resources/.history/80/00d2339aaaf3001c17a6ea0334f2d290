@@ -1,0 +1,30 @@
+package exojava;
+
+public class exo7 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	    
+	    try {
+	    	Scanner input=new Scanner(System.in);
+	    	
+		System.out.print("tapez un nombre :");
+		
+	    int nombre= input.nextInt();
+	    
+	    	 if (nombre = q) {
+	    		 
+	    	System.out.print("vous etes sorti");
+	    	break;
+	} else {
+		System.out.print("rentrer denouveau un bombre");
+	    input.nextInt();
+	}
+	    }catch (Exception q){
+	    	
+	    	   System.out.println("vous etes sorti");
+	    }
+
+}
+}
