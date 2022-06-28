@@ -34,6 +34,11 @@ public class DaoFactory {
 	public AuteurDao getAuteurDao() {
 		return new AuteurDaoImpl( this );
 	}
+	
+	public LivreDao getLivreDao() {
+		return new LivreDaoImpl( this );
+	}
+	
 
 	Connection getConnection() throws SQLException {
 		if ( this.con == null ) {

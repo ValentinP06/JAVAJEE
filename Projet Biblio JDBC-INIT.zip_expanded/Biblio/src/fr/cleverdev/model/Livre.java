@@ -1,29 +1,52 @@
 package fr.cleverdev.model;
 
 public class Livre {
-	
-	private Auteur auteur;
+
+	private long id;
+	private long idAuteur;
 	private String titre;
 	private int nbPages;
 	private String categorie;
-	
+
 	public Livre() {
-		
+
+	}
+
+	public Livre(long id, long idAuteur, String titre, int nbPages, String categorie) {
+		this.id = id;
+		this.idAuteur = idAuteur;
+		this.titre = titre;
+		this.nbPages = nbPages;
+		this.categorie = categorie;
 	}
 	
-	public Livre(Auteur auteur, String titre, int nbPages, String categorie) {
-		this.setAuteur(auteur);
-		this.setTitre(titre);
-		this.setNbPages(nbPages);
-		this.setCategorie(categorie);
+	public Livre(long idAuteur, String titre, int nbPages, String categorie) {
+		this.idAuteur = idAuteur;
+		this.titre = titre;
+		this.nbPages = nbPages;
+		this.categorie = categorie;
+	}
+	
+	public Livre(String titre, int nbPages, String categorie) {
+		this.titre = titre;
+		this.nbPages = nbPages;
+		this.categorie = categorie;
 	}
 
-	public Auteur getAuteur() {
-		return auteur;
+	public long getId() {
+		return id;
 	}
 
-	public void setAuteur(Auteur auteur) {
-		this.auteur = auteur;
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public long getIdAuteur() {
+		return idAuteur;
+	}
+
+	public void setIdAuteur(long idAuteur) {
+		this.idAuteur = idAuteur;
 	}
 
 	public String getTitre() {
@@ -49,65 +72,10 @@ public class Livre {
 	public void setCategorie(String categorie) {
 		this.categorie = categorie;
 	}
-	
-	
-	
-	public class Livre {
-		
-		private Auteur auteur;
-		private String titre;
-		private int nbPages;
-		private String categorie;
-		
-		public Livre() {
-			
-		}
-		
-		public Livre(Auteur auteur, String titre, int nbPages, String categorie) {
-			this.setAuteur(auteur);
-			this.setTitre(titre);
-			this.setNbPages(nbPages);
-			this.setCategorie(categorie);
-		}
 
-		public Auteur getAuteur() {
-			return auteur;
-		}
+	@Override
+	public String toString() {
+		return String.format("%s: %d pages -- %s", this.getTitre(), this.getNbPages(), this.getCategorie());
+	}
 
-		public void setAuteur(Auteur auteur) {
-			this.auteur = auteur;
-		}
-
-		public String getTitre() {
-			return titre;
-		}
-
-		public void setTitre(String titre) {
-			this.titre = titre;
-		}
-
-		public int getNbPages() {
-			return nbPages;
-		}
-
-		public void setNbPages(int nbPages) {
-			this.nbPages = nbPages;
-		}
-
-		public String getCategorie() {
-			return categorie;
-		}
-
-		public void setCategorie(String categorie) {
-			this.categorie = categorie;
-		}
-		
-		
-
-		@Override
-		public String toString() {
-			return getAuteur().getNom + " : " + getAuteur().getTitre() + " " + getAuteur().getNbPages() + " - " + getAuteur().getCategorie();
-		}
-	
-
-}}
+}

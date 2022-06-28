@@ -1,0 +1,5 @@
+package fr.cleverdev.dao;
+
+public interface LivreDao {
+
+}
