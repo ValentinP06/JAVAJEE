@@ -77,5 +77,11 @@ public class Livre {
 	public String toString() {
 		return String.format("%s: %d pages -- %s", this.getTitre(), this.getNbPages(), this.getCategorie());
 	}
+	
+	/*
+	@Override
+	public String toString() {
+	return getId() + " : " + getTitre() + " de " + getAuteur().getPrenom() + " " + getAuteur().getNom() + " / " + getNbPages() + " pages / Cat�gorie : " + getCategorie();
+	} */
 
 }

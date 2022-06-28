@@ -1,5 +1,11 @@
 INDEX VERSION 1.131
 C:\Users\Valentin\eclipse-workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2959671083.index
 \TestJEE\src\main\java
+C:\Users\Valentin\eclipse-workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3524782111.index
+\EXO1\src\main\java
+C:\Users\Valentin\eclipse-workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\91625651.index
+\EXO1\src\main\java
+C:\Users\Valentin\eclipse-workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\528280770.index
+\exercice\src\main\java
 C:\Users\Valentin\eclipse-workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3458242677.index
 \TestJEE\src\main\java
