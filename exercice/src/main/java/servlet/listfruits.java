@@ -56,6 +56,7 @@ public class listfruits extends HttpServlet {
 		
 		//EXERCICE3
 		
+		/*
 		String parametere = request.getParameter("name");
 
 		int valuee;
@@ -68,7 +69,13 @@ public class listfruits extends HttpServlet {
 		
 		if(valuee == 0) {
 			request.setAttribute("name", "bonjour name !");
-		}
+		} 
+		*/
+		String name = request.getParameter("name");
+		
+		request.setAttribute("name", "Bonjour"+ "  "+name);
+		
+		
 		this.getServletContext().getRequestDispatcher("/WEB-INF/fruits.jsp").forward(request, response);		
 		}
 	}

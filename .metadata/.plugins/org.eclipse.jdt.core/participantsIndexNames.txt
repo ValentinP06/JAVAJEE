@@ -1,11 +1,21 @@
 INDEX VERSION 1.131
-C:\Users\Valentin\eclipse-workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2959671083.index
+C:\Users\Valentin\eclipse-workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1663330274.index
+\TestJEEmoi\src\main\java
+C:\Users\Valentin\eclipse-workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3458242677.index
 \TestJEE\src\main\java
-C:\Users\Valentin\eclipse-workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3524782111.index
-\EXO1\src\main\java
-C:\Users\Valentin\eclipse-workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\91625651.index
-\EXO1\src\main\java
+C:\Users\Valentin\eclipse-workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\887631583.index
+\TestJEE\src\main\java
+C:\Users\Valentin\eclipse-workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1937083067.index
+\BiblioJEE\src\main\java
+C:\Users\Valentin\eclipse-workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1649295501.index
+\BiblioJEE\src\main\java
 C:\Users\Valentin\eclipse-workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\528280770.index
 \exercice\src\main\java
-C:\Users\Valentin\eclipse-workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3458242677.index
+C:\Users\Valentin\eclipse-workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\91625651.index
+\EXO1\src\main\java
+C:\Users\Valentin\eclipse-workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3524782111.index
+\EXO1\src\main\java
+C:\Users\Valentin\eclipse-workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1413352449.index
+\BiblioJEE\src\main\java
+C:\Users\Valentin\eclipse-workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2959671083.index
 \TestJEE\src\main\java

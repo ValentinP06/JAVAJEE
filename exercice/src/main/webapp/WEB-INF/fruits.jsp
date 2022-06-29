@@ -17,7 +17,7 @@
 
 <h2>${isGood}</h2>
 
-<h2> ${ name}  <h2>
+<h2> Bonjour ${ name}  <h2>
  
 </body>
 

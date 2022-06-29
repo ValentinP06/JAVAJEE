@@ -1,0 +1,18 @@
+
+.menu{
+background-color: green;	
+	color:red;
+}
+
+
+.auteurs{
+	border: solid;
+border: 4mm ridge rgba(211, 220, 50, .6);
+
+}
+
+.livres{
+	border: solid;
+	border: 1rem solid rgba(11, 20, 33, .6);;
+	
+}
