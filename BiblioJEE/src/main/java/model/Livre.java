@@ -2,51 +2,37 @@ package model;
 
 public class Livre {
 
-	private long id;
-	private long idAuteur;
+	private Long id;
+	private Auteur auteur;
 	private String titre;
 	private int nbPages;
 	private String categorie;
-
+	
 	public Livre() {
-
-	}
-
-	public Livre(long id, long idAuteur, String titre, int nbPages, String categorie) {
-		this.id = id;
-		this.idAuteur = idAuteur;
-		this.titre = titre;
-		this.nbPages = nbPages;
-		this.categorie = categorie;
+		
 	}
 	
-	public Livre(long idAuteur, String titre, int nbPages, String categorie) {
-		this.idAuteur = idAuteur;
-		this.titre = titre;
-		this.nbPages = nbPages;
-		this.categorie = categorie;
-	}
-	
-	public Livre(String titre, int nbPages, String categorie) {
+	public Livre(Auteur auteur, String titre, int nbPages, String categorie) {
+		this.auteur = auteur;
 		this.titre = titre;
 		this.nbPages = nbPages;
 		this.categorie = categorie;
 	}
 
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
-	public long getIdAuteur() {
-		return idAuteur;
+	public Auteur getAuteur() {
+		return auteur;
 	}
 
-	public void setIdAuteur(long idAuteur) {
-		this.idAuteur = idAuteur;
+	public void setAuteur(Auteur auteur) {
+		this.auteur = auteur;
 	}
 
 	public String getTitre() {
@@ -73,15 +59,11 @@ public class Livre {
 		this.categorie = categorie;
 	}
 
+
 	@Override
 	public String toString() {
-		return String.format("%s: %d pages -- %s", this.getTitre(), this.getNbPages(), this.getCategorie());
+		return getId() + " : " + getTitre() + " de " + getAuteur().getPrenom() + " " + getAuteur().getNom() + " / " + getNbPages() + " pages / Cat�gorie : " + getCategorie();
 	}
 	
-	/*
-	@Override
-	public String toString() {
-	return getId() + " : " + getTitre() + " de " + getAuteur().getPrenom() + " " + getAuteur().getNom() + " / " + getNbPages() + " pages / Cat�gorie : " + getCategorie();
-	} */
-
+	
 }

@@ -31,7 +31,7 @@ public class Auteur {
 		this.nom = nom;
 	}
 	public String getPrenom() {
-		return prenom;
+		return this.prenom;
 	}
 	public void setPrenom(String prenom) {
 		this.prenom = prenom;
@@ -54,18 +54,6 @@ public class Auteur {
 		return getId() + " : " + getNom() + " " + getPrenom() + " - " + getTelephone() + " / " + getEmail();
 	}
 
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((email == null) ? 0 : email.hashCode());
-		result = prime * result + ((id == null) ? 0 : id.hashCode());
-		result = prime * result + ((nom == null) ? 0 : nom.hashCode());
-		result = prime * result + ((prenom == null) ? 0 : prenom.hashCode());
-		result = prime * result + ((telephone == null) ? 0 : telephone.hashCode());
-		return result;
-	}
-
 
 	@Override
 	public boolean equals(Object obj) {
@@ -75,6 +63,7 @@ public class Auteur {
 		
 		return true;
 	}
+	
 	
 	
 

@@ -23,23 +23,22 @@ import model.Livre;
 public class ListeLivres extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    
+	private LivreDao LivreDao;
+	  public ListeLivres() {
+	        super();
+	        LivreDao = DaoFactory.getInstance().getLivreDao();
+	    }
+	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		
 		//lister les auteurs 
-
-		LivreDao LivreDao = DaoFactory.getInstance().getLivreDao();
-		List<Livre> ListeLivres = null;
-		
 		try {
-			ListeLivres = LivreDao.lister();
+			request.setAttribute("livres", LivreDao.lister());
 		} catch (DaoException e) {
 			e.printStackTrace();
 		}
-		request.setAttribute("ListeLivres", ListeLivres);
-		
-		
+	
 		
 		this.getServletContext().getRequestDispatcher("/WEB-INF/ListeLivres.jsp").forward(request, response);
 

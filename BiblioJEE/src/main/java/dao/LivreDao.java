@@ -19,4 +19,8 @@ public interface LivreDao {
 	
 	Auteur getAuteur(long idAuteur) throws DaoException;
 
+	List<Livre> listerByAuteur(Long idAuteur) throws DaoException;
+
+	void update(Livre livre) throws DaoException;
+
 }
