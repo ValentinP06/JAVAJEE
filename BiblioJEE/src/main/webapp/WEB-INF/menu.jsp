@@ -4,15 +4,14 @@
 
 <link type="text/css" rel="stylesheet" href="<c:url value="/inc/style.css" />" />
 <h2 class=menu>Menu VINTAGE</h2>
-<h3> 30 JUIN 2022 </h3>
 <div class = menu>
 <ul>
 
 	<li ><a href="<c:url value="/" />">Acceuil</a></li>
 	<li ><a href="<c:url value="/ListeAuteurs" />">ListeAuteurs</a></li>
 	<li ><a href="<c:url value="/ListeLivres" />">ListeLivres</a></li>
-	<li ><a href="<c:url value="/AjouterAuteur" />">Ajoute ton auteur préféré</a></li>
-	<li ><a href="<c:url value="/AjouterLivre" />">Ajoute ton livre préféré</a></li>
+	<li ><a href="<c:url value="/AjouterAuteur" />">Ajoute ton auteur prefere</a></li>
+	<li ><a href="<c:url value="/AjouterLivre" />">Ajoute ton livre prefere</a></li>
 	
 </ul>
 </div>

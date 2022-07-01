@@ -43,6 +43,14 @@ public class AjouterAuteur extends HttpServlet {
 		auteur.setTelephone(telephone);
 		auteur.setEmail(email);
 		
+		if(email != null) {
+			if(email.length() > 60) {
+                erreurs.put("emailAuteur", "Un email doit avoir au maximum 60 caractères.");
+            }
+            if(!email.matches("([^.@]+)(\\.[^.@]+)*@([^.@]+\\.)+([^.@]+)")) {
+                erreurs.put("emailAuteur", "merci de saisir une adresse mail valide.");
+            }
+        }
 		try {
 			AuteurDao.creer(auteur);
 		} catch (DaoException e) {

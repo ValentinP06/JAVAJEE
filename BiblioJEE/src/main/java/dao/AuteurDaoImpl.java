@@ -16,8 +16,9 @@ public class AuteurDaoImpl implements AuteurDao {
 	private static final String SQL_SELECT       = "SELECT id,nom,prenom,telephone,email FROM auteur";
     private static final String SQL_SELECT_BY_ID = "SELECT id,nom,prenom,telephone,email FROM auteur WHERE id = ?";
 	private static final String SQL_DELETE_BY_ID = "DELETE FROM auteur WHERE id = ? ";
-	private static final String SQL_UPDATE_BY_ID = "UPDATE auteur SET nom=?, prenom=?, telephone=?, email=? WHERE id= ? ";
-
+	
+	private static final String SQL_UPDATE = "UPDATE auteur SET nom=?, prenom=?, telephone=?, email=? WHERE id = ?";
+	
 	private DaoFactory factory;
 	
 	public AuteurDaoImpl(DaoFactory factory) {
@@ -57,6 +58,35 @@ public class AuteurDaoImpl implements AuteurDao {
 		}
 		
 	}
+	
+	
+	@Override
+	public void update(Auteur auteur) throws DaoException {
+		Connection con=null;
+		try {
+			con = factory.getConnection();
+			
+			PreparedStatement pst = con.prepareStatement( SQL_UPDATE );
+			pst.setString( 1, auteur.getNom() );
+			pst.setString( 2, auteur.getPrenom() );
+			pst.setString( 3, auteur.getTelephone() );
+			pst.setString( 4, auteur.getEmail() );
+			pst.setLong( 5, auteur.getId() );
+
+			int statut = pst.executeUpdate();
+
+            if ( statut == 0 ) {
+                throw new DaoException( "Echec modification Auteur" );
+            }
+			pst.close();
+			
+	    } catch(SQLException ex) {
+	    	throw new DaoException("Echec m Auteur",ex);
+	    } finally {
+	    	factory.releaseConnection(con);
+		}
+	}
+
 
 	@Override
 	public Auteur trouver(long id) throws DaoException {
@@ -135,36 +165,7 @@ public class AuteurDaoImpl implements AuteurDao {
         a.setEmail( resultSet.getString( "email" ) );
         return a;
     }
-    
-    
-    @Override
-	public void modifier(long id, Auteur auteur) throws DaoException {
 
-		Connection con = null;
 
-		try {
-			con = factory.getConnection();
-			PreparedStatement pst = con.prepareStatement(SQL_UPDATE_BY_ID, Statement.RETURN_GENERATED_KEYS);
 
-			pst.setString(1, auteur.getNom());
-			pst.setString(2, auteur.getPrenom());
-			pst.setString(3, auteur.getTelephone());
-			pst.setString(4, auteur.getEmail());
-			pst.setLong(5, id);
-
-			int statut = pst.executeUpdate();
-
-			if (statut == 0) {
-				throw new DaoException("Echec modification Auteur(" + id + ")");
-			}
-
-			pst.close();
-
-		} catch (SQLException sqlEx) {
-			throw new DaoException("Echec BDD modification auteur: " + sqlEx);
-
-		} finally {
-			factory.releaseConnection(con);
-		}
-
-    }}
+}

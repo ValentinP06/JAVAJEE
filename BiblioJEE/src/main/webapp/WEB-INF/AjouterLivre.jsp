@@ -22,30 +22,25 @@
 			<fieldset>
 				<legend>Créer un livre</legend>
 				
-				<label for="AuteurLivre">choisir Auteur</label>
-				<br/>	
+				<label for="auteurLivre">Auteur</label>
+<select id="auteurLivre" name="auteurLivre">
+	<c:forEach items="${ auteurs }" var="auteur">
+		<option value="<c:out value="${ auteur.id }"/>" ${ auteur.id == livre.auteur.id ? "selected" : "" }><c:out value="${ auteur.prenom }"/> <c:out value="${ auteur.nom }"/></option>
+	</c:forEach>
+</select>
+<br/>
 
-<select name="Auteur" id="Auteur-select">
-<c:forEach items="${ Auteurs }" var="Auteur" >
-    <option value="">--Please choose an autor--</option>
-   <c:out value="${ Auteurs }" />
-</c:forEach>
+<label for="titreLivre">Titre</label>
+<input type="text" id="titreLivre" name="titreLivre" value="<c:out value="${ livre.titre }" />" size="50" />
+<br/>
 
-</select> 
+<label for="nbPagesLivre">Nombre de pages</label>
+<input type="number" id="nbPagesLivre" name="nbPagesLivre" value="<c:out value="${ livre.nbPages }" />" size="10" />
+<br/>
 
-				
-				
-				<br/><label for="titreLivre">titre</label>
-				<input type="text" id="titreLivre" name="titreLivre" size="20" />
-				<br/>
-				
-				<label for="nbPagesLivre">nbPages</label>
-				<input type="text" id="nbPagesLivre" name="nbPagesLivre" size="10" />
-				<br/>
-				
-				<label for="categorieLivre">categorie</label>
-				<input type="text" id="categorieLivre" name="categorieLivre" size="60" />
-				<br/>
+<label for="categorieLivre">Catégorie</label>
+<input type="text" id="categorieLivre" name="categorieLivre" value="<c:out value="${ livre.categorie }" />" size="20" />
+<br/>
 			
 			</fieldset>
 		
@@ -53,8 +48,5 @@
 			<input type="reset" value="Remettre à zéro" />
 		</form>
 	</div>
-	
-	
-	
 </body>
 </html>

@@ -2,8 +2,7 @@
 .menu{
 background-color: green;	
 	color:red;
-}
-
+	}
 
 .auteurs{
 	border: solid;
@@ -30,13 +29,14 @@ border: 4mm ridge rgba(211, 220, 50, .6);
 .tableau{
 	border: thick double;
 	border : color yellow;
-	 background-color: silver;
+	 background-color: black;
 }
 
 body
 {
-    background-color: silver;
     color: white;
+    background:url("https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Grande_bibliotheque-Gray01.jpg/800px-Grande_bibliotheque-Gray01.jpg");
+    background-position: top;
 }
 
 h2{
@@ -49,6 +49,6 @@ color :aqua;
 label {
 	text-align: left;
 	display: inline-block;;
-	width: 111px;
+	width: 144px;
 	
 }

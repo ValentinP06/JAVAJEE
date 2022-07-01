@@ -13,6 +13,8 @@ public interface AuteurDao {
     List<Auteur> lister() throws DaoException;
 
     void         supprimer( long id ) throws DaoException;
+
+    void         update( Auteur auteur ) throws DaoException;
+
     
-    void 		 modifier (long id, Auteur auteur) throws DaoException;  
 }

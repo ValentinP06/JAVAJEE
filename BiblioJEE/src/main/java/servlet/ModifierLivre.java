@@ -8,58 +8,65 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dao.LivreDao;
 import dao.AuteurDao;
 import dao.DaoException;
 import dao.DaoFactory;
-import dao.LivreDao;
 import model.Auteur;
 import model.Livre;
 
 /**
- * Servlet implementation class AjouterLivre
+ * Servlet implementation class AjouterAuteur
  */
-@WebServlet("/AjouterLivre")
-public class AjouterLivre extends HttpServlet {
+@WebServlet("/ModifierLivre")
+public class ModifierLivre extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     
-	private LivreDao livreDao;
 	private AuteurDao auteurDao;
+	private LivreDao LivreDao;
 	
-    public AjouterLivre() {
+    public ModifierLivre() {
         super();
-        livreDao = DaoFactory.getInstance().getLivreDao();
         auteurDao = DaoFactory.getInstance().getAuteurDao();
+        LivreDao = DaoFactory.getInstance().getLivreDao();
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		try {
-			request.setAttribute("auteurs", auteurDao.lister());
+		
+		
+		long id = Long.parseLong(request.getParameter("id"));
+
+		try { 
+			
+			request.setAttribute("Auteurs", auteurDao.lister());
+			request.setAttribute("Livre", LivreDao.trouver(id));
 		} catch (DaoException e) {
 			e.printStackTrace();
 		}
 		
-		this.getServletContext().getRequestDispatcher("/WEB-INF/AjouterLivre.jsp").forward(request, response);
+		
+		
+		this.getServletContext().getRequestDispatcher("/WEB-INF/ModifierLivre.jsp").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+		
 		String titre = request.getParameter("titreLivre");
-		int nbPages = Integer.parseInt(request.getParameter("nbPagesLivre"));
 		String categorie = request.getParameter("categorieLivre");
-		long idAuteur = Long.parseLong(request.getParameter("auteurLivre"));
-		
-		
-		Livre livre = new Livre();
-		livre.setTitre(titre);
-		livre.setNbPages(nbPages);
-		livre.setCategorie(categorie);
+		Long id = Long.parseLong(request.getParameter("id"));
+		int NbPages = Integer.parseInt(request.getParameter("NbPages"));
+		Long idAuteur = Long.parseLong(request.getParameter("idAuteur"));
+	
 		
 		try {
 			Auteur auteur = auteurDao.trouver(idAuteur);
-			
-			livre.setAuteur(auteur);
-			
-			livreDao.creer(livre);
+			Livre Livre = LivreDao.trouver(id);
+			Livre.setTitre(titre);
+			Livre.setNbPages(NbPages);
+			Livre.setCategorie(categorie);
+			Livre.setAuteur(auteur);
+			LivreDao.update(Livre);
 		} catch (DaoException e) {
 			e.printStackTrace();
 		}

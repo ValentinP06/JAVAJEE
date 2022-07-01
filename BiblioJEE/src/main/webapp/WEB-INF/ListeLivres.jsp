@@ -32,6 +32,7 @@
 			<th>nomprenom </th>
 			<th>details</th>
 			<th>Supprimer</th>
+			<th>Modifier</th>
 		
 		
 			</tr>
@@ -47,8 +48,10 @@
 			
 			<td><a href="<c:url value="/DetailsLivres" ><c:param name="id" value="${livre.id }"/> </c:url>"> Voir</a></td>	
 			
-			<td><a	href="<c:url value="/SupprimerLivre" ><c:param name="id" value="${Livre.id }"/> </c:url>"> supprimer</a></td>
-			</tr>
+			<td><a	href="<c:url value="/SupprimerLivre" ><c:param name="id" value="${livre.id }"/> </c:url>"> supprimer</a></td>
+			
+			<td><a	href="<c:url value="/ModifierLivre" ><c:param name="id" value="${livre.id }"/> </c:url>"> Modifier</a></td>
+			
 			</c:forEach>		
 	</table>
 	

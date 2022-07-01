@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -19,14 +20,22 @@ import model.Auteur;
 public class ModifierAuteur extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     
-	private AuteurDao AuteurDao;
+	private AuteurDao auteurDao;
 	
     public ModifierAuteur() {
         super();
-        AuteurDao = DaoFactory.getInstance().getAuteurDao();
+        auteurDao = DaoFactory.getInstance().getAuteurDao();
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		long id = Long.parseLong(request.getParameter("id"));
+		
+		try {
+			request.setAttribute("auteur", auteurDao.trouver(id));
+		} catch (DaoException e) {
+			e.printStackTrace();
+		}
+		
 		this.getServletContext().getRequestDispatcher("/WEB-INF/ModifierAuteur.jsp").forward(request, response);
 	}
 
@@ -36,15 +45,16 @@ public class ModifierAuteur extends HttpServlet {
 		String prenom = request.getParameter("prenomAuteur");
 		String telephone = request.getParameter("telephoneAuteur");
 		String email = request.getParameter("emailAuteur");
-		
-		Auteur auteur = new Auteur();
-		auteur.setNom(nom);
-		auteur.setPrenom(prenom);
-		auteur.setTelephone(telephone);
-		auteur.setEmail(email);
+		long id = Long.parseLong(request.getParameter("id"));
+	
 		
 		try {
-			AuteurDao.creer(auteur);
+			Auteur auteur = auteurDao.trouver(id);
+			auteur.setNom(nom);
+			auteur.setPrenom(prenom);
+			auteur.setTelephone(telephone);
+			auteur.setEmail(email);
+			auteurDao.update(auteur);
 		} catch (DaoException e) {
 			e.printStackTrace();
 		}
