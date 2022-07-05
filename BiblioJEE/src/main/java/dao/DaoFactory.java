@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+import utils.Configuration;
+
 public class DaoFactory {
  
 	 private String url;
@@ -20,17 +22,27 @@ public class DaoFactory {
 		this.passwd = passwd;
 	}
 	
+	 
 	public static DaoFactory getInstance() {
 		if ( DaoFactory.instanceSingleton == null ) {
 			try {
-			      Class.forName("org.postgresql.Driver");
-			      DaoFactory.instanceSingleton = new DaoFactory("jdbc:postgresql://localhost/biblio","postgres","12345");
-		  } catch(ClassNotFoundException e) {
-			  e.printStackTrace();
-		  }
+				
+				  String dbDriver = Configuration.getConfig("db_driver");
+				  String dbHost = Configuration.getConfig("db_host");
+				  String dbName = Configuration.getConfig("db_database");
+				  String dbUsername = Configuration.getConfig("db_username");
+				  String dbPassword = Configuration.getConfig("db_password");
+				
+			      Class.forName(dbDriver);
+			      DaoFactory.instanceSingleton = new DaoFactory("jdbc:postgresql://"+dbHost+"/"+dbName, dbUsername, dbPassword);
+			} catch(ClassNotFoundException e) {
+				e.printStackTrace();
+			}
 		}
 		return DaoFactory.instanceSingleton;
 	}
+	
+	
 	public AuteurDao getAuteurDao() {
 		return new AuteurDaoImpl( this );
 	}
@@ -38,7 +50,6 @@ public class DaoFactory {
 	public LivreDao getLivreDao() {
 		return new LivreDaoImpl( this );
 	}
-	
 
 	Connection getConnection() throws SQLException {
 		if ( this.con == null ) {
@@ -47,8 +58,8 @@ public class DaoFactory {
 		return this.con;
 	}
 	
-	// cette m�thode prend une connection en parametre en pr�sagent que l'on pourrait en utiliser plusieurs
-	// mais par construction actuellement la seule connection existante est stock�e dans "this.con"
+	// cette methode prend une connection en parametre en presagent que l'on pourrait en utiliser plusieurs
+	// mais par construction actuellement la seule connection existante est stockee dans "this.con"
 	void releaseConnection( Connection connectionRendue ) {
 		if (this.con==null) {
 			return;
