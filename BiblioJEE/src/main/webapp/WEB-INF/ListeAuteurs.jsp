@@ -73,6 +73,7 @@
 		</c:otherwise>
 
 	</c:choose>
+<span>${sessionScope.confirmerMessage }</span>
 </div>
 
 

@@ -12,6 +12,8 @@
 	<li ><a href="<c:url value="/ListeLivres" />">ListeLivres</a></li>
 	<li ><a href="<c:url value="/AjouterAuteur" />">Ajoute ton auteur prefere</a></li>
 	<li ><a href="<c:url value="/AjouterLivre" />">Ajoute ton livre prefere</a></li>
+			<li><a href="<c:url value="/deconnexion" />">Se deconnecter</a></li>
+	
 	
 </ul>
 </div>
