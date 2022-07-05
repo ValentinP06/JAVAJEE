@@ -43,7 +43,7 @@ public class ListeAuteurs extends HttpServlet {
 		
 		
 		this.getServletContext().getRequestDispatcher("/WEB-INF/ListeAuteurs.jsp").forward(request, response);
-
+		request.getSession().removeAttribute("confirmerMessage");
 	}
 
 }
